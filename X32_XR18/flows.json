@@ -1,0 +1,728 @@
+[
+    {
+        "id": "54565bb54fdff946",
+        "type": "tab",
+        "label": "Connections",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dae6d40332c7e8d7",
+        "type": "group",
+        "z": "54565bb54fdff946",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "7fec40903ff2e5fd",
+            "401d0958ee9e1f37",
+            "e4d46c1e9e733a06",
+            "bafbadf335d5990d",
+            "3e4e6aef21cf3d61",
+            "b7ae525a6bbd97be",
+            "0ec2bec88a9d96c2",
+            "03d3fa404bdec61f",
+            "0f5cd507e506d25f",
+            "9e7aeb538a0fa2bb",
+            "a7dc9b26670309ce",
+            "4d2bd65e9e271982",
+            "41cad2a2b58cc957",
+            "7cc0fdc497ef26b5",
+            "668ef7e157b9d7ec"
+        ],
+        "x": 94,
+        "y": 419,
+        "w": 772,
+        "h": 382
+    },
+    {
+        "id": "df683defc00eceea",
+        "type": "group",
+        "z": "54565bb54fdff946",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "3ddb047d75c8c3da",
+            "5263dd1aa824064f",
+            "0ad787433f3404ad",
+            "cf19477555cfc70e",
+            "e61d3883d11c1009",
+            "362778ecedc471fc",
+            "77db9915ba9282bf",
+            "6b4b9f8b57fc69cc",
+            "c49fdd09b2ed5485",
+            "1655386c133d51e2",
+            "6050d07eb9e2b34b",
+            "a9a9fe64436d83d3",
+            "89a2cecc2f4d2fa2",
+            "03a15b2e40fd1bbf"
+        ],
+        "x": 94,
+        "y": 39,
+        "w": 892,
+        "h": 342
+    },
+    {
+        "id": "3a504baf76cc29d5",
+        "type": "group",
+        "z": "54565bb54fdff946",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "91eea507c01da72c",
+            "b6fe2e4183b75ef5",
+            "59da808d989dfa2d",
+            "7e42827287f68fed",
+            "41d5631c50e18837",
+            "052de3b7c1d36fba",
+            "7940428563a09709",
+            "7bdf96a703b48607"
+        ],
+        "x": 94,
+        "y": 839,
+        "w": 692,
+        "h": 262
+    },
+    {
+        "id": "3ddb047d75c8c3da",
+        "type": "tcp in",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "",
+        "server": "client",
+        "host": "172.29.1.4",
+        "port": "9595",
+        "datamode": "stream",
+        "datatype": "buffer",
+        "newline": "",
+        "topic": "",
+        "trim": false,
+        "base64": false,
+        "tls": "",
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "77db9915ba9282bf"
+            ]
+        ]
+    },
+    {
+        "id": "5263dd1aa824064f",
+        "type": "tcp out",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "",
+        "host": "172.29.1.4",
+        "port": "9595",
+        "beserver": "client",
+        "base64": false,
+        "end": false,
+        "tls": "",
+        "x": 860,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "0ad787433f3404ad",
+        "type": "osc",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "OSC Decode",
+        "path": "",
+        "metadata": false,
+        "x": 610,
+        "y": 180,
+        "wires": [
+            [
+                "e61d3883d11c1009",
+                "1655386c133d51e2"
+            ]
+        ]
+    },
+    {
+        "id": "cf19477555cfc70e",
+        "type": "osc",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "OSC Encode",
+        "path": "",
+        "metadata": false,
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "6b4b9f8b57fc69cc"
+            ]
+        ]
+    },
+    {
+        "id": "e61d3883d11c1009",
+        "type": "debug",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "DEBUG: From LP",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "362778ecedc471fc",
+        "type": "debug",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "DEBUG: To LP",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "77db9915ba9282bf",
+        "type": "slip",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "",
+        "mode": "decode",
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "0ad787433f3404ad"
+            ]
+        ]
+    },
+    {
+        "id": "6b4b9f8b57fc69cc",
+        "type": "slip",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "",
+        "mode": "encode",
+        "x": 630,
+        "y": 280,
+        "wires": [
+            [
+                "5263dd1aa824064f",
+                "362778ecedc471fc"
+            ]
+        ]
+    },
+    {
+        "id": "c49fdd09b2ed5485",
+        "type": "link in",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "To LP",
+        "links": [
+            "41e4e05aa295b035"
+        ],
+        "x": 295,
+        "y": 280,
+        "wires": [
+            [
+                "cf19477555cfc70e"
+            ]
+        ]
+    },
+    {
+        "id": "1655386c133d51e2",
+        "type": "link out",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "From LP",
+        "mode": "link",
+        "links": [
+            "f5fb8f804b11b78f"
+        ],
+        "x": 755,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "7fec40903ff2e5fd",
+        "type": "udp out",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "X32",
+        "addr": "172.29.1.24",
+        "iface": "",
+        "port": "10024",
+        "ipv": "udp4",
+        "outport": "9000",
+        "base64": false,
+        "multicast": "false",
+        "x": 670,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "401d0958ee9e1f37",
+        "type": "udp in",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "",
+        "iface": "",
+        "port": "9000",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "buffer",
+        "x": 300,
+        "y": 560,
+        "wires": [
+            [
+                "bafbadf335d5990d"
+            ]
+        ]
+    },
+    {
+        "id": "e4d46c1e9e733a06",
+        "type": "debug",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "DEBUG: From X32",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "bafbadf335d5990d",
+        "type": "osc",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "OSC Decode",
+        "path": "",
+        "metadata": false,
+        "x": 490,
+        "y": 560,
+        "wires": [
+            [
+                "e4d46c1e9e733a06",
+                "0ec2bec88a9d96c2"
+            ]
+        ]
+    },
+    {
+        "id": "3e4e6aef21cf3d61",
+        "type": "inject",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "/xremote",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "9",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "/xremote",
+        "x": 220,
+        "y": 760,
+        "wires": [
+            [
+                "b7ae525a6bbd97be"
+            ]
+        ]
+    },
+    {
+        "id": "b7ae525a6bbd97be",
+        "type": "osc",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "OSC Encode",
+        "path": "",
+        "metadata": false,
+        "x": 410,
+        "y": 700,
+        "wires": [
+            [
+                "7cc0fdc497ef26b5",
+                "7fec40903ff2e5fd"
+            ]
+        ]
+    },
+    {
+        "id": "0ec2bec88a9d96c2",
+        "type": "link out",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "From X32",
+        "mode": "link",
+        "links": [
+            "35825aefeda198f0"
+        ],
+        "x": 645,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "03d3fa404bdec61f",
+        "type": "link in",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "To X32",
+        "links": [
+            "be1fdb75a0c79c98",
+            "c0380c1b64e346dd"
+        ],
+        "x": 275,
+        "y": 700,
+        "wires": [
+            [
+                "b7ae525a6bbd97be"
+            ]
+        ]
+    },
+    {
+        "id": "0f5cd507e506d25f",
+        "type": "comment",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "Must match UDP Send Node",
+        "info": "",
+        "x": 300,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "9e7aeb538a0fa2bb",
+        "type": "comment",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "Set IP Address of X32",
+        "info": "",
+        "x": 720,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "a7dc9b26670309ce",
+        "type": "comment",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "From",
+        "info": "",
+        "x": 170,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6050d07eb9e2b34b",
+        "type": "comment",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "From",
+        "info": "",
+        "x": 250,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4d2bd65e9e271982",
+        "type": "comment",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "To",
+        "info": "",
+        "x": 210,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a9a9fe64436d83d3",
+        "type": "comment",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "To",
+        "info": "",
+        "x": 230,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "41cad2a2b58cc957",
+        "type": "debug",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "DEBUG: To X32",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "7cc0fdc497ef26b5",
+        "type": "switch",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "filter",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^/xremote",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 570,
+        "y": 660,
+        "wires": [
+            [],
+            [
+                "41cad2a2b58cc957"
+            ]
+        ]
+    },
+    {
+        "id": "89a2cecc2f4d2fa2",
+        "type": "comment",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "Loopy Pro",
+        "info": "",
+        "x": 180,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "668ef7e157b9d7ec",
+        "type": "comment",
+        "z": "54565bb54fdff946",
+        "g": "dae6d40332c7e8d7",
+        "name": "X32",
+        "info": "",
+        "x": 170,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "03a15b2e40fd1bbf",
+        "type": "comment",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "Must match TCP Out Node",
+        "info": "",
+        "x": 230,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "91eea507c01da72c",
+        "type": "status",
+        "z": "54565bb54fdff946",
+        "g": "3a504baf76cc29d5",
+        "name": "TCP In Status",
+        "scope": [
+            "3ddb047d75c8c3da"
+        ],
+        "x": 190,
+        "y": 1000,
+        "wires": [
+            [
+                "59da808d989dfa2d",
+                "7e42827287f68fed",
+                "7940428563a09709"
+            ]
+        ]
+    },
+    {
+        "id": "b6fe2e4183b75ef5",
+        "type": "link out",
+        "z": "54565bb54fdff946",
+        "g": "3a504baf76cc29d5",
+        "name": "LP Status Out",
+        "mode": "link",
+        "links": [
+            "f5fb8f804b11b78f"
+        ],
+        "x": 745,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "59da808d989dfa2d",
+        "type": "debug",
+        "z": "54565bb54fdff946",
+        "g": "3a504baf76cc29d5",
+        "name": "DEBUG: TCP In Status",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "7e42827287f68fed",
+        "type": "function",
+        "z": "54565bb54fdff946",
+        "g": "3a504baf76cc29d5",
+        "name": "gate control",
+        "func": "if (msg.status.text == \"common.status.connected\") {\n    msg.topic = \"gate\";\n    msg.payload = \"open\"\n}\n else if (msg.status.text == \"common.status.disconnected\") {\n    msg.topic = \"gate\";\n    msg.payload = \"close\" \n }\n \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1000,
+        "wires": [
+            [
+                "41d5631c50e18837"
+            ]
+        ]
+    },
+    {
+        "id": "41d5631c50e18837",
+        "type": "delay",
+        "z": "54565bb54fdff946",
+        "g": "3a504baf76cc29d5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 1000,
+        "wires": [
+            [
+                "b6fe2e4183b75ef5"
+            ]
+        ]
+    },
+    {
+        "id": "052de3b7c1d36fba",
+        "type": "function",
+        "z": "54565bb54fdff946",
+        "g": "3a504baf76cc29d5",
+        "name": "Sync to X32",
+        "func": "if (msg.status.text == \"common.status.connected\") {\n    msg.topic = \"/sync\";\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1060,
+        "wires": [
+            [
+                "b6fe2e4183b75ef5"
+            ]
+        ]
+    },
+    {
+        "id": "7940428563a09709",
+        "type": "delay",
+        "z": "54565bb54fdff946",
+        "g": "3a504baf76cc29d5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 400,
+        "y": 1060,
+        "wires": [
+            [
+                "052de3b7c1d36fba"
+            ]
+        ]
+    },
+    {
+        "id": "7bdf96a703b48607",
+        "type": "comment",
+        "z": "54565bb54fdff946",
+        "g": "3a504baf76cc29d5",
+        "name": "Startup/Reconnect Sync",
+        "info": "",
+        "x": 230,
+        "y": 880,
+        "wires": []
+    }
+]
