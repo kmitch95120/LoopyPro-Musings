@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "19636769575f681c",
+        "type": "tab",
+        "label": "Message Handlers",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "dae6d40332c7e8d7",
         "type": "group",
         "z": "54565bb54fdff946",
@@ -103,6 +111,88 @@
         "y": 839,
         "w": 692,
         "h": 262
+    },
+    {
+        "id": "504012e248caded1",
+        "type": "group",
+        "z": "19636769575f681c",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "f5fb8f804b11b78f",
+            "be1fdb75a0c79c98",
+            "dd8885cf8f4bc7a7",
+            "f5bec0dc2d4c344f",
+            "063450ac89c9c019",
+            "9952ca5bf880d6a0",
+            "322f4a98423d5880",
+            "d920c122d3260673",
+            "2f40a682847bd54d"
+        ],
+        "x": 34,
+        "y": 79,
+        "w": 812,
+        "h": 242
+    },
+    {
+        "id": "da228c902535e891",
+        "type": "group",
+        "z": "19636769575f681c",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "41e4e05aa295b035",
+            "35825aefeda198f0",
+            "d6074eaba06323ef",
+            "cf8ca446747c22b8",
+            "64be29889ec4f10e",
+            "c8bab95072438d27"
+        ],
+        "x": 34,
+        "y": 339,
+        "w": 652,
+        "h": 202
+    },
+    {
+        "id": "10e85f91e9ee14d4",
+        "type": "group",
+        "z": "19636769575f681c",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "5f81ee7c15ec9355",
+            "c0380c1b64e346dd",
+            "bc021be3afd6b764",
+            "9f58d928d97f7406",
+            "bf2947d590e5a1e3",
+            "84616d0252d0d179",
+            "e0407c3c2960e3dd"
+        ],
+        "x": 34,
+        "y": 579,
+        "w": 732,
+        "h": 182
     },
     {
         "id": "3ddb047d75c8c3da",
@@ -724,5 +814,419 @@
         "x": 230,
         "y": 880,
         "wires": []
+    },
+    {
+        "id": "f5fb8f804b11b78f",
+        "type": "link in",
+        "z": "19636769575f681c",
+        "g": "504012e248caded1",
+        "name": "LP Handler In",
+        "links": [
+            "1655386c133d51e2",
+            "b6fe2e4183b75ef5"
+        ],
+        "x": 235,
+        "y": 200,
+        "wires": [
+            [
+                "9952ca5bf880d6a0"
+            ]
+        ]
+    },
+    {
+        "id": "be1fdb75a0c79c98",
+        "type": "link out",
+        "z": "19636769575f681c",
+        "g": "504012e248caded1",
+        "name": "LP Handler Out",
+        "mode": "link",
+        "links": [
+            "03d3fa404bdec61f"
+        ],
+        "x": 765,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "dd8885cf8f4bc7a7",
+        "type": "switch",
+        "z": "19636769575f681c",
+        "g": "504012e248caded1",
+        "name": "filter sends",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^/ch/[0-1][0-9]/mix/[0-1][0-9]/level",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "eq",
+                "v": "/sync",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 550,
+        "y": 200,
+        "wires": [
+            [
+                "f5bec0dc2d4c344f",
+                "be1fdb75a0c79c98"
+            ],
+            [
+                "322f4a98423d5880"
+            ],
+            [
+                "063450ac89c9c019"
+            ]
+        ]
+    },
+    {
+        "id": "f5bec0dc2d4c344f",
+        "type": "debug",
+        "z": "19636769575f681c",
+        "g": "504012e248caded1",
+        "name": "LP Valid",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "063450ac89c9c019",
+        "type": "debug",
+        "z": "19636769575f681c",
+        "g": "504012e248caded1",
+        "name": "LP Invalid",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c0380c1b64e346dd",
+        "type": "link out",
+        "z": "19636769575f681c",
+        "g": "10e85f91e9ee14d4",
+        "name": "Sync",
+        "mode": "link",
+        "links": [
+            "03d3fa404bdec61f"
+        ],
+        "x": 725,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "9952ca5bf880d6a0",
+        "type": "gate",
+        "z": "19636769575f681c",
+        "g": "504012e248caded1",
+        "name": "",
+        "controlTopic": "gate",
+        "defaultState": "closed",
+        "openCmd": "open",
+        "closeCmd": "close",
+        "toggleCmd": "toggle",
+        "defaultCmd": "default",
+        "statusCmd": "status",
+        "persist": false,
+        "storeName": "memory",
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "dd8885cf8f4bc7a7"
+            ]
+        ]
+    },
+    {
+        "id": "322f4a98423d5880",
+        "type": "link out",
+        "z": "19636769575f681c",
+        "g": "504012e248caded1",
+        "name": "To Sync",
+        "mode": "link",
+        "links": [
+            "bc021be3afd6b764"
+        ],
+        "x": 725,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "bc021be3afd6b764",
+        "type": "link in",
+        "z": "19636769575f681c",
+        "g": "10e85f91e9ee14d4",
+        "name": "Sync",
+        "links": [
+            "322f4a98423d5880"
+        ],
+        "x": 135,
+        "y": 660,
+        "wires": [
+            [
+                "5f81ee7c15ec9355"
+            ]
+        ]
+    },
+    {
+        "id": "d920c122d3260673",
+        "type": "comment",
+        "z": "19636769575f681c",
+        "g": "504012e248caded1",
+        "name": "Why do we need the gate?",
+        "info": "Loopy Pro \"flushes\" the current values of all OSC bindings whenever a TCP conenction is established. This is really bad since it overrides the X32 and forces the faders to the values from Loopy Pro.\n\nThe \"closed gate\" blocks Incoming Loopy Pro messages until 3 seconds after the TCP connection is established so the \"flush\" messages are discarded. ",
+        "x": 330,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5f81ee7c15ec9355",
+        "type": "function",
+        "z": "19636769575f681c",
+        "g": "10e85f91e9ee14d4",
+        "name": "Parameter List",
+        "func": "let parms = [];\n\nparms[0] = {topic: \"/ch/01/mix/01/level\"};\nparms[1] = {topic: \"/ch/02/mix/01/level\"};\nreturn [parms];",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 660,
+        "wires": [
+            [
+                "bf2947d590e5a1e3",
+                "e0407c3c2960e3dd"
+            ]
+        ]
+    },
+    {
+        "id": "9f58d928d97f7406",
+        "type": "inject",
+        "z": "19636769575f681c",
+        "g": "10e85f91e9ee14d4",
+        "name": "Manual Sync",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "/sync",
+        "x": 150,
+        "y": 720,
+        "wires": [
+            [
+                "5f81ee7c15ec9355"
+            ]
+        ]
+    },
+    {
+        "id": "2f40a682847bd54d",
+        "type": "comment",
+        "z": "19636769575f681c",
+        "g": "504012e248caded1",
+        "name": "Handle Messages from Loopy Pro to X32",
+        "info": "",
+        "x": 220,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "bf2947d590e5a1e3",
+        "type": "debug",
+        "z": "19636769575f681c",
+        "g": "10e85f91e9ee14d4",
+        "name": "DEBUG: Sync",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "41e4e05aa295b035",
+        "type": "link out",
+        "z": "19636769575f681c",
+        "g": "da228c902535e891",
+        "name": "X32 Handler Out",
+        "mode": "link",
+        "links": [
+            "c49fdd09b2ed5485"
+        ],
+        "x": 555,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "35825aefeda198f0",
+        "type": "link in",
+        "z": "19636769575f681c",
+        "g": "da228c902535e891",
+        "name": "X32 Handler In",
+        "links": [
+            "0ec2bec88a9d96c2"
+        ],
+        "x": 245,
+        "y": 440,
+        "wires": [
+            [
+                "d6074eaba06323ef"
+            ]
+        ]
+    },
+    {
+        "id": "d6074eaba06323ef",
+        "type": "switch",
+        "z": "19636769575f681c",
+        "g": "da228c902535e891",
+        "name": "filter sends",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^/ch/[0-1][0-9]/mix/[0-1][0-9]/level",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 390,
+        "y": 440,
+        "wires": [
+            [
+                "cf8ca446747c22b8",
+                "41e4e05aa295b035"
+            ],
+            [
+                "64be29889ec4f10e"
+            ]
+        ]
+    },
+    {
+        "id": "cf8ca446747c22b8",
+        "type": "debug",
+        "z": "19636769575f681c",
+        "g": "da228c902535e891",
+        "name": "X32 Valid",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "64be29889ec4f10e",
+        "type": "debug",
+        "z": "19636769575f681c",
+        "g": "da228c902535e891",
+        "name": "X32 Invalid",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c8bab95072438d27",
+        "type": "comment",
+        "z": "19636769575f681c",
+        "g": "da228c902535e891",
+        "name": "Handle Messages from X32 to Loopy Pro",
+        "info": "",
+        "x": 220,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "84616d0252d0d179",
+        "type": "comment",
+        "z": "19636769575f681c",
+        "g": "10e85f91e9ee14d4",
+        "name": "Handle /sync",
+        "info": "",
+        "x": 130,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "e0407c3c2960e3dd",
+        "type": "delay",
+        "z": "19636769575f681c",
+        "g": "10e85f91e9ee14d4",
+        "name": "100 mS",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "10",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 660,
+        "wires": [
+            [
+                "c0380c1b64e346dd"
+            ]
+        ]
     }
 ]
