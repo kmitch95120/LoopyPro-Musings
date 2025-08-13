@@ -1,5 +1,7 @@
 # Connecting an X32 (or XR18) to Loopy Pro
 
+For those who don't want to read this entire explanation, go to the [Quick Start](./QuickStart.md).
+
 ## An Overview
 
 If all I wanted to do was get audio in and out of Loopy Pro, I just needed to connect the mixer to a USB dongle and then connect the dongle to the iPad. I'm running Loopy Pro on a 2024 iPad Air M2 so the USB connection is USB-C. I'm using a UtechSmart USB-C hub that also has HDMI and Ethernet. More on that later. Behringer mixers are Core Audio compliant so they just "show up" as audio INs and OUTs on the iPad.
@@ -16,7 +18,7 @@ The Raspberry Pi has long been considered the Swiss Army knife of computing and 
 
 What I will cover is what version of Node-RED I used as well as what modules I used for this project.
 
-- Node-RED 4.0.5
+- Node-RED 4.1.0
 - node-red-contrib-osc 1.1.0
 - node-red-contrib-slip 1.1.0
 - node-red-contrib-simple-gate 0.5.2
