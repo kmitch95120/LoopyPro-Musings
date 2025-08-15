@@ -89,7 +89,7 @@ This is where all messages coming **FROM** Loopy Pro are handled.
 
 The first thing an incoming message hits is a simple gate node. This "gate" is controlled by the status of the TCP In node of the Loopy Pro connection. Open the "Why do we need the gate?" comment for a full explanation as to why this is needed. The gate is controlled by the Startup/Reconnect group in the Connections flow.
 
-Next is a switch node. This node uses a regular expression statement to act as a filter and allow only mixbus send OSC messages or a special "/sync" message. More on the /sync message below. All other OSC messages from Loopy Pro are discarded. Of course, this would need to be modified if more OSC types of messages are needed. Once filtered, the messages are sent to the X32 via the UDP Out node of the X32 group in the Connections flow.
+Next is a switch node. This node uses a regular expression statement to act as a filter and allow only mixbus send OSC messages or a special "/sync" message. More on the /sync message below. All other OSC messages from Loopy Pro are discarded. Of course, this would need to be modified if more OSC types of messages are needed. Once filtered, the messages are passed through a function node that rounds the values to 4 decimals places. This rounding is required to avoid an endless feedback loop due to differing floating point precision.  The messages are then sent to the X32 via the UDP Out node of the X32 group in the Connections flow.
 
 ### X32 Handler
 
@@ -97,7 +97,7 @@ This is where all messages coming **FROM** the X32 are handled.
 
 ![image](media/Messages-X32.png)
 
-The X32 handler is very simple. It is just a switch node acting as a filter so that only mixbus send messages are sent to Loopy Pro. Technically, this is not required, but the X32 is very "chatty", so this keeps the X32 from overwhelming Loopy Pro. This filter may need to be modifed if more X32 messages are needed.
+The X32 handler is very simple. It is just a switch node acting as a filter so that only mixbus send messages are sent to Loopy Pro. Technically, this is not required, but the X32 is very "chatty", so this keeps the X32 from overwhelming Loopy Pro. This filter may need to be modifed if more X32 messages are needed. Before being sent to Loopy Pro, the messages are passed through a function node that rounds the values to 4 decimal places. This rounding is required to avoid an endless feedback loop due to differing floating point precision.
 
 ### The /sync Handler
 

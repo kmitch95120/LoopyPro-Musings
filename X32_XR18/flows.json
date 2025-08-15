@@ -77,12 +77,13 @@
             "6050d07eb9e2b34b",
             "a9a9fe64436d83d3",
             "89a2cecc2f4d2fa2",
-            "03a15b2e40fd1bbf"
+            "03a15b2e40fd1bbf",
+            "723c1a083e6ee0f8"
         ],
         "x": 94,
         "y": 39,
         "w": 892,
-        "h": 342
+        "h": 362
     },
     {
         "id": "3a504baf76cc29d5",
@@ -134,11 +135,12 @@
             "9952ca5bf880d6a0",
             "322f4a98423d5880",
             "d920c122d3260673",
-            "2f40a682847bd54d"
+            "2f40a682847bd54d",
+            "efd914b98ed9bc8c"
         ],
         "x": 34,
         "y": 79,
-        "w": 812,
+        "w": 852,
         "h": 242
     },
     {
@@ -160,11 +162,12 @@
             "d6074eaba06323ef",
             "cf8ca446747c22b8",
             "64be29889ec4f10e",
-            "c8bab95072438d27"
+            "c8bab95072438d27",
+            "f623232df6d370fe"
         ],
         "x": 34,
         "y": 339,
-        "w": 652,
+        "w": 732,
         "h": 202
     },
     {
@@ -816,6 +819,37 @@
         "wires": []
     },
     {
+        "id": "723c1a083e6ee0f8",
+        "type": "inject",
+        "z": "54565bb54fdff946",
+        "g": "df683defc00eceea",
+        "name": "Learn",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "/ch/09/mix/02/level",
+        "payload": "0.5",
+        "payloadType": "num",
+        "x": 310,
+        "y": 360,
+        "wires": [
+            [
+                "cf19477555cfc70e"
+            ]
+        ],
+        "info": "Use this node to manually send an OSC message to Loopy Pro while you have a widget in Learn Mode. "
+    },
+    {
         "id": "f5fb8f804b11b78f",
         "type": "link in",
         "z": "19636769575f681c",
@@ -825,7 +859,7 @@
             "1655386c133d51e2",
             "b6fe2e4183b75ef5"
         ],
-        "x": 235,
+        "x": 195,
         "y": 200,
         "wires": [
             [
@@ -843,7 +877,7 @@
         "links": [
             "03d3fa404bdec61f"
         ],
-        "x": 765,
+        "x": 845,
         "y": 200,
         "wires": []
     },
@@ -874,12 +908,12 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 550,
+        "x": 510,
         "y": 200,
         "wires": [
             [
                 "f5bec0dc2d4c344f",
-                "be1fdb75a0c79c98"
+                "efd914b98ed9bc8c"
             ],
             [
                 "322f4a98423d5880"
@@ -904,7 +938,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 720,
-        "y": 160,
+        "y": 140,
         "wires": []
     },
     {
@@ -954,7 +988,7 @@
         "statusCmd": "status",
         "persist": false,
         "storeName": "memory",
-        "x": 370,
+        "x": 330,
         "y": 200,
         "wires": [
             [
@@ -1000,7 +1034,7 @@
         "g": "504012e248caded1",
         "name": "Why do we need the gate?",
         "info": "Loopy Pro \"flushes\" the current values of all OSC bindings whenever a TCP conenction is established. This is really bad since it overrides the X32 and forces the faders to the values from Loopy Pro.\n\nThe \"closed gate\" blocks Incoming Loopy Pro messages until 3 seconds after the TCP connection is established so the \"flush\" messages are discarded. ",
-        "x": 330,
+        "x": 290,
         "y": 260,
         "wires": []
     },
@@ -1010,7 +1044,7 @@
         "z": "19636769575f681c",
         "g": "10e85f91e9ee14d4",
         "name": "Parameter List",
-        "func": "let parms = [];\n\nparms[0] = {topic: \"/ch/01/mix/01/level\"};\nparms[1] = {topic: \"/ch/02/mix/01/level\"};\nreturn [parms];",
+        "func": "let parms = [];\n\nparms[0] = {topic: \"/ch/09/mix/01/level\"};\nparms[1] = {topic: \"/ch/09/mix/02/level\"};\nreturn [parms];",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1090,7 +1124,7 @@
         "links": [
             "c49fdd09b2ed5485"
         ],
-        "x": 555,
+        "x": 725,
         "y": 440,
         "wires": []
     },
@@ -1138,7 +1172,7 @@
         "wires": [
             [
                 "cf8ca446747c22b8",
-                "41e4e05aa295b035"
+                "f623232df6d370fe"
             ],
             [
                 "64be29889ec4f10e"
@@ -1160,7 +1194,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 560,
-        "y": 400,
+        "y": 380,
         "wires": []
     },
     {
@@ -1226,6 +1260,48 @@
         "wires": [
             [
                 "c0380c1b64e346dd"
+            ]
+        ]
+    },
+    {
+        "id": "f623232df6d370fe",
+        "type": "function",
+        "z": "19636769575f681c",
+        "g": "da228c902535e891",
+        "name": "Round4",
+        "func": "let tmp = msg.payload;\nmsg.payload = parseFloat(tmp.toFixed(4));\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 440,
+        "wires": [
+            [
+                "41e4e05aa295b035"
+            ]
+        ]
+    },
+    {
+        "id": "efd914b98ed9bc8c",
+        "type": "function",
+        "z": "19636769575f681c",
+        "g": "504012e248caded1",
+        "name": "Round4",
+        "func": "if (Array.isArray(msg.payload) == true) {\n    let tmp = msg.payload;\n    msg.payload = parseFloat(tmp[0].toFixed(4));\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 200,
+        "wires": [
+            [
+                "be1fdb75a0c79c98"
             ]
         ]
     }
